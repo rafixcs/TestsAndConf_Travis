@@ -10,7 +10,6 @@ Important files:
 
 * [identifier.c](identifier.c)
 * [Makefile](Makefile)
-* [test](test)
 * [.travis.yml](.travis.yml)
 
 
