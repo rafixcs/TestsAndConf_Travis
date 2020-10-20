@@ -4,7 +4,7 @@ Simple Travis example for C using GCC compiler.
 
 Test results:
 
-[<img alt="Build Status" src="https://travis-ci.org/rafaelgaribotti/travis-identifier.svg?branch=master" height="40">][travis-url]
+[<img alt="Build Status" src="https://travis-ci.org/rafaelgaribotti/travis-identifier.svg?branch=main" height="40">][travis-url]
 
 Important files:
 
