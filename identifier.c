@@ -34,17 +34,17 @@ int main(void) {
   achar = fgetc(stdin);
   while(achar != '\n') {
     if(!(valid_f(achar))) {
-	  valid_id = 0;
-	}
-	length++;
-	achar = fgetc(stdin);
+      valid_id = 0;
+    }
+    length++;
+    achar = fgetc(stdin);
   }
   if (valid_id && (length >= 1) && (length < 6)) {
     printf("Valido\n");
-	return 0;
+    return 0;
   }
   else {
     printf("Invalido\n");
-	return 1;
+    return 1;
   }
 }
