@@ -4,7 +4,7 @@ Simple Travis example for C using GCC compiler.
 
 Test results:
 
-[<img alt="Build Status" src="https://travis-ci.org/rsp/travis-hello-modern-cpp.svg?branch=master" height="40">][travis-url]
+[<img alt="Build Status" src="https://travis-ci.org/rafaelgaribotti/travis-identifier.svg?branch=master" height="40">][travis-url]
 
 Important files:
 
@@ -24,8 +24,8 @@ License
 MIT License (Expat). See [LICENSE.md](LICENSE.md) for details.
 
 [main-url]: https://github.com/rafaelgaribotti/travis-identifier
-[readme-url]: https://github.com/rafaelgaribotti/travis-identifier#readme
-[license-url]: https://github.com/rafaelgaribotti/travis-identifier/LICENSE.md
+[readme-url]: https://github.com/rafaelgaribotti/travis-identifier/blob/main/README.md
+[license-url]: https://github.com/rafaelgaribotti/travis-identifier/blob/main/LICENSE
 [license-img]: https://img.shields.io/github/license/rsp/travis-hello-modern-cpp.svg
 [travis-url]: https://travis-ci.org/rafaelgaribotti/travis-identifier
 [travis-img]: https://travis-ci.org/rafaelgaribotti/travis-identifier.svg?branch=master
