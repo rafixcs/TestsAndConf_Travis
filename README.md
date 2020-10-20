@@ -21,7 +21,7 @@ Author
 
 License
 -------
-MIT License (Expat). See [LICENSE.md](LICENSE.md) for details.
+MIT License (Expat). See [LICENSE](LICENSE) for details.
 
 [main-url]: https://github.com/rafaelgaribotti/travis-identifier
 [readme-url]: https://github.com/rafaelgaribotti/travis-identifier/blob/main/README.md
