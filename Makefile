@@ -13,7 +13,7 @@ cov: identifier.c
 	$(GCC) $(GCCFLAGS) -fprofile-arcs -ftest-coverage -o $@ identifier.c
 
 clean:
-	$(RM) $(ALL) *.o
+	rm -fr $(ALL) *.o cov* *.dSYM *.gcda *.gcno *.gcov
 
 test: all
 	bash test
