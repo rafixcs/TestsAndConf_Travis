@@ -3,6 +3,6 @@
 
 int valid_s(char ch);
 int valid_f(char ch);
-int identifier(void);
+int valid_string(const char *string);
 
 #endif

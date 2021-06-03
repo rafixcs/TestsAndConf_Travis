@@ -7,54 +7,48 @@
 
 #include "identifier.h"
 #include <stdio.h>
+#include <string.h>
 
-int valid_s(char ch)
-{
+int valid_s(char ch) {
 	if (((ch >= 'A') && (ch <= 'Z')) || ((ch >= 'a') && (ch <= 'z')))
 		return 1;
 	else
 		return 0;
 }
 
-int valid_f(char ch)
-{
+int valid_f(char ch) {
 	if (((ch >= 'A') && (ch <= 'Z')) || ((ch >= 'a') && (ch <= 'z')) || ((ch >= '0') && (ch <= '9')))
 		return 1;
 	else
 		return 0;
 }
 
-int identifier(void)
-{
+int valid_string(const char *string) {
 	char achar;
 	int length, valid_id;
 
 	length = 0;
-
-	printf("Identificador: ");
-
-	achar = fgetc(stdin);
+	achar = string[0];
 	valid_id = valid_s(achar);
-
-	if (valid_id) {
-		length = 1;
+	length++;
+	if (!valid_id) {
+		return 0;
 	}
 
-	achar = fgetc(stdin);
-	while (achar != '\n') {
+	while (length < (int)strlen(string)) {
 		if (!(valid_f(achar))) {
 			valid_id = 0;
 		}
+		achar = string[length];
 		length++;
-		achar = fgetc(stdin);
 	}
 
+	//printf("Lenn string: %d\n", length);
+
 	if (valid_id && (length >= 1) && (length < 6)) {
-		printf("Valido\n");
-		return 0;
+		return 1;
 	}
 	else {
-		printf("Invalido\n");
-		return 1;
+		return 0;
 	}
 }

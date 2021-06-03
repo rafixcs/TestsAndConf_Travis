@@ -1,8 +1,10 @@
-# Travis example for Identifier created by Rafael Garibotti
+ALL = clean cppcheck valgrind unity gcov
+M_UNITY = clean compileunity rununity
 
 GCCFLAGS = -g -Wall -Wfatal-errors 
-ALL = identifier
 GCC = gcc
+SANITIZER = -fsanitize=address
+COV = -fprofile-arcs -ftest-coverage
 
 ifeq ($(OS),Windows_NT)
   ifeq ($(shell uname -s),) # not in a bash-like shell
@@ -24,7 +26,7 @@ ifeq ($(shell uname -s), Darwin)
 C_COMPILER=clang
 endif
 
-UNITY_ROOT=../
+UNITY_ROOT=../Unity
 
 CFLAGS=-std=c99
 CFLAGS += -Wall
@@ -55,17 +57,26 @@ SYMBOLS=
 
 all: $(ALL)
 
-identifier: identifier.c
-	$(GCC) $(GCCFLAGS) -o $@ $@.c
+cppcheck:
+	cppcheck --enable=all .
 
-cov: identifier.c
-	$(GCC) $(GCCFLAGS) -fprofile-arcs -ftest-coverage -o $@ identifier.c	
+unity: $(M_UNITY)
 
 compileunity:
+	$(C_COMPILER) $(CFLAGS) $(INC_DIRS) $(SYMBOLS) $(SRC_FILES1) $(SANITIZER) $(COV) -o $(TARGET1)
+
+rununity:
+	- ./$(TARGET1) -v
+
+valgrind:
 	$(C_COMPILER) $(CFLAGS) $(INC_DIRS) $(SYMBOLS) $(SRC_FILES1) -o $(TARGET1)
+	valgrind --leak-check=full --show-leak-kinds=all ./$(TARGET1)
+
+gcov:
+	gcov identifier.c
 
 clean:
-	rm -fr $(ALL) *.o cov* *.dSYM *.gcda *.gcno *.gcov
+	rm -fr $(ALL) *.o cov* *.dSYM *.gcda *.gcno *.gcov *.out
 
 test: all
 	bash test
