@@ -12,6 +12,7 @@ addons:
       - gcc
 install:
   - "[ $GCC = gcc ] && export GCC=gcc || true"
+  - "apt install cppcheck"
 script:
   - cd Identifier; make
 #  - make test
