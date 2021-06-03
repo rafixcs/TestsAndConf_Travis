@@ -13,5 +13,5 @@ addons:
 install:
   - "[ $GCC = gcc ] && export GCC=gcc || true"
 script:
-  - cd Identifier/ ;make
+  - cd Identifier; make
 #  - make test
