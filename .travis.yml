@@ -12,7 +12,8 @@ addons:
       - gcc
 install:
   - "[ $GCC = gcc ] && export GCC=gcc || true"
-  - "sudo apt install cppcheck"
+  - "sudo apt install cppcheck -y"
+  - "sudo apt install valgrind -y"
 script:
   - cd Identifier; make
 #  - make test
