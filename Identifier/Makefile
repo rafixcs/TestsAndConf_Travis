@@ -24,7 +24,7 @@ endif
 C_COMPILER=gcc
 ifeq ($(shell uname -s), Darwin)
 C_COMPILER=clang
-endif
+endif	
 
 UNITY_ROOT=../Unity
 
