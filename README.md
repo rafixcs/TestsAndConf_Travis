@@ -12,12 +12,6 @@ Important files:
 * [Makefile](Makefile)
 * [.travis.yml](.travis.yml)
 
-
-Author
-------
-[**Rafael Garibotti**](https://br.linkedin.com/in/rafaelgaribotti)
-
-
 License
 -------
 MIT License. See [LICENSE](LICENSE) for details.
