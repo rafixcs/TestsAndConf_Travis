@@ -23,7 +23,7 @@ int valid_f(char ch) {
 		return 0;
 }
 
-int valid_string(const char *string) {
+int valid_string(char *string) {
 	char achar;
 	int length, valid_id;
 	length = 0;

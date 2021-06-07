@@ -14,20 +14,34 @@ TEST_TEAR_DOWN(Identifier)
 
 TEST(Identifier, unitaryCharTest)
 {
-	const char teste = 'a';
-	TEST_ASSERT(valid_s(teste));
+	char teste = 'A';
+	while (teste != 'Z') {
+		TEST_ASSERT(valid_s(teste));
+		teste++;
+	}
+	teste = 'a';
+	while (teste != 'z') {
+		TEST_ASSERT(valid_s(teste));
+		teste++;
+	}
 }
 
 TEST(Identifier, unitaryIntTest)
 {
-	const char teste = '5';
-	TEST_ASSERT_FALSE(valid_s(teste));
+	char teste = '0';
+	while (teste != '9') {
+		TEST_ASSERT_FALSE(valid_s(teste));
+		teste++;
+	}
 }
 
 TEST(Identifier, charIntTest)
 {
-	const char *teste = "a5";
-	TEST_ASSERT(valid_string(teste));
+	char teste[] = "a0";
+	while(teste[1] != '9') {
+		TEST_ASSERT(valid_string(teste));
+		teste[1]++;
+	}
 }
 
 TEST(Identifier, stringTest)
@@ -38,8 +52,11 @@ TEST(Identifier, stringTest)
 
 TEST(Identifier, intCharTest)
 {
-	const char *teste = "5a";
-	TEST_ASSERT_FALSE(valid_string(teste));
+	char teste[] = "0a";
+	while(teste[0] != '9') {
+		TEST_ASSERT_FALSE(valid_string(teste));
+		teste[0]++;
+	}
 }
 
 TEST(Identifier, maxSizeString)
@@ -56,18 +73,29 @@ TEST(Identifier, largerSizeString)
 
 TEST(Identifier, specialCharUnitary)
 {
-	const char teste = '$';
-	TEST_ASSERT_FALSE(valid_s(teste));
+	char teste = 0;
+	while (teste < 127) {
+		if (teste < '0' && teste > '9' && teste < 'a' && teste > 'z' && teste < 'A' && teste >'Z')
+			TEST_ASSERT_FALSE(valid_s(teste));
+		teste++;
+	}
 }
 
 TEST(Identifier, specialStringTest)
 {
-	const char *teste = "$&!";
-	TEST_ASSERT_FALSE(valid_string(teste));
+	char teste[] = {33,33,33};	
+	for (int i=0; i<2; i++) {
+		while(teste[i] < 127) {
+			if (teste[i] < '0' && teste[i] > '9' && teste[i] < 'a' && teste[i] > 'z' && teste[i] < 'A' && teste[i] >'Z')
+				TEST_ASSERT_FALSE(valid_string(teste));
+			teste[i]++;
+		}
+	}
+	
 }
 
 TEST(Identifier, mixedStringTest)
 {
-	const char *teste = "a\%5s";
+	unsigned char *teste = "a&2";
 	TEST_ASSERT_FALSE(valid_string(teste));
 }
