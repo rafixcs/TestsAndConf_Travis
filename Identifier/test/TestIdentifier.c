@@ -44,7 +44,7 @@ TEST(Identifier, intCharTest)
 
 TEST(Identifier, maxSizeString)
 {
-	const char *teste = "Teste";
+	const char *teste = "Testee";
 	TEST_ASSERT(valid_string(teste));
 }
 

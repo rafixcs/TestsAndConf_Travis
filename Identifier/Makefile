@@ -58,7 +58,7 @@ SYMBOLS=
 all: $(ALL)
 
 cppcheck:
-	cppcheck --enable=all .
+	cppcheck --enable=all --suppress=missingIncludeSystem .
 
 unity: $(M_UNITY)
 
@@ -73,7 +73,7 @@ valgrind:
 	valgrind --leak-check=full --show-leak-kinds=all ./$(TARGET1)
 
 gcov:
-	gcov identifier.c
+	gcov -rbp identifier.c
 
 clean:
 	rm -fr $(ALL) *.o cov* *.dSYM *.gcda *.gcno *.gcov *.out

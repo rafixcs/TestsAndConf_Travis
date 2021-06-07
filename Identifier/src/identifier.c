@@ -26,7 +26,6 @@ int valid_f(char ch) {
 int valid_string(const char *string) {
 	char achar;
 	int length, valid_id;
-
 	length = 0;
 	achar = string[0];
 	valid_id = valid_s(achar);
@@ -34,7 +33,6 @@ int valid_string(const char *string) {
 	if (!valid_id) {
 		return 0;
 	}
-
 	while (length < (int)strlen(string)) {
 		if (!(valid_f(achar))) {
 			valid_id = 0;
@@ -42,10 +40,7 @@ int valid_string(const char *string) {
 		achar = string[length];
 		length++;
 	}
-
-	//printf("Lenn string: %d\n", length);
-
-	if (valid_id && (length >= 1) && (length < 6)) {
+	if (valid_id && (length >= 1) && (length <= 6)) {
 		return 1;
 	}
 	else {
