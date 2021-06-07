@@ -14,3 +14,4 @@ TEST_GROUP_RUNNER(Identifier)
   RUN_TEST_CASE(Identifier, specialStringTest);
   RUN_TEST_CASE(Identifier, mixedStringTest);
 }
+

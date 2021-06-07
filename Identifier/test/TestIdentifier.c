@@ -46,22 +46,28 @@ TEST(Identifier, charIntTest)
 
 TEST(Identifier, stringTest)
 {
-	const char *teste = "aabb";
-	TEST_ASSERT(valid_string(teste));
+	char teste[] = "AaA";
+
+	while(teste[1] != 'z') {
+		TEST_ASSERT(valid_string(teste));
+		teste[1]++;		
+	}
+	
+	while (teste[2] != 'Z') {
+		TEST_ASSERT(valid_string(teste));
+		teste[2]++;
+	} 
 }
 
 TEST(Identifier, intCharTest)
 {
-	char teste[] = "0a";
-	while(teste[0] != '9') {
-		TEST_ASSERT_FALSE(valid_string(teste));
-		teste[0]++;
-	}
+	char teste[] = "0a";	
+	TEST_ASSERT_FALSE(valid_string(teste));
 }
 
 TEST(Identifier, maxSizeString)
 {
-	const char *teste = "Testee";
+	const char *teste = "Te5te9";
 	TEST_ASSERT(valid_string(teste));
 }
 
@@ -96,6 +102,6 @@ TEST(Identifier, specialStringTest)
 
 TEST(Identifier, mixedStringTest)
 {
-	unsigned char *teste = "a&2";
+	unsigned char *teste = "a&";
 	TEST_ASSERT_FALSE(valid_string(teste));
 }

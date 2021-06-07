@@ -33,14 +33,15 @@ int valid_string(char *string) {
 	if (!valid_id) {
 		return 0;
 	}
-	while (length < (int)strlen(string)) {
+	do  {
 		if (!(valid_f(achar))) {
 			valid_id = 0;
-		}
+		}		
 		achar = string[length];
 		length++;
-	}
-	if (valid_id && (length >= 1) && (length <= 6)) {
+	} while((achar != '\0'));
+	
+	if (valid_id && (length >= 1) && (length <= 7)) {
 		return 1;
 	}
 	else {
