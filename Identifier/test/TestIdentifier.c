@@ -102,6 +102,6 @@ TEST(Identifier, specialStringTest)
 
 TEST(Identifier, mixedStringTest)
 {
-	unsigned char *teste = "a&";
+	unsigned char *teste = "a&5s";
 	TEST_ASSERT_FALSE(valid_string(teste));
 }

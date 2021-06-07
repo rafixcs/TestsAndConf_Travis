@@ -39,9 +39,9 @@ int valid_string(char *string) {
 		}		
 		achar = string[length];
 		length++;
-	} while((achar != '\0'));
-	
-	if (valid_id && (length >= 1) && (length <= 7)) {
+	} while((achar != '\0'));	
+	length--;
+	if (valid_id && (length >= 1) && (length < 7) ) {
 		return 1;
 	}
 	else {
